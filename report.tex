@@ -1,0 +1,230 @@
+
+%
+% MpLtX --- a LaTeX Template for Modern Physics Lab
+% Copyright (C) 2013 Modern Phys. Lab, School of Phys., Peking Univ.
+%
+%   MpLtX is a template for experiment report of Modern Physics Lab in
+% Peking University. This template depends on the "revtex4.1" package from
+% APS Journals <http://publish.aps.org/revtex/revtex-faq>
+%
+% To use this template, you should open the package download from APS Journals'
+% website as above and follow instructions from the README file in the package.
+%
+% LaTeX is marvelous for math formulae composition. However, the script grammar
+% is rather difficult to handle. Maybe at the beginning, it's convenient to
+% generate a pretty document. The deeper you went, more weird grammar you got.
+% Before you found out the whole fantesy-like world built by Knuth, Lamport and
+% numerous contributors, you would get numerous strange errors unclearly
+% reported by compiler.
+%
+% Anyway, a lot of people wish to find a general document system which is both
+% easy to use and strong enough to conveniently DIY. Word is easy to use.
+% However, Word can not produce perfect document in art --- the position and
+% size are not well calculated. By the way, it's such a pain to do simple but
+% repeating work in Word such as formating title, generate large data table
+% and etc. These works can be easily done in LaTeX if you know a little about
+% programming. HTML is a easy-to-use language to create static document. It is
+% compatible on all the machines currently because all you need is a simple
+% browser (Firefox, Chrome or IE). In HTML5, the latest version of HTML, you
+% can do colorful presentation about the report. You can present dynamic
+% figures to present your idea clearly. However, the biggest problem for HTML
+% is that this never renders a beautiful math formula in a simple way. HTML
+% indeed has a math engine named as MathML. But this guy is notorious for its
+% unreadable script grammar. So HTML+TeX --- the project MathJax, becomes a
+% candidate of our dream communication media or e-document form. However, it is
+% still under development. If you are interested in Java, JLaTeXMath package may
+% be also a proper one since it provides a LaTeX renderer in Java.
+%
+% This template is modified by students in Peking University.
+%   I am Sun Sibai. Cao Chuanwu shared the draft on RenRen Network. However,
+% the draft did not match the requirement at all. It seems that Cao Chuanwu
+% did not modified the style from package. He just put the origin content
+% into LaTeX format.
+%   I changed the style to satisfy the format requirement and fixed some problem
+% about the incompatibility within the packages.
+%
+% So, if you have suggestions, please improve this template with your power. We
+% will be always glad to see our work useful, popular and wonderful!
+%
+% This template has been tested in TeXLive 2012 with the command:
+% $ xelatex mpltx.tex
+% compile twice.
+%
+% Anyone can modify this template, but don't forget to list the previous
+% developers and add yourself in.
+%
+% Sun Sibai <niasw@pku.edu.cn>
+% Cao Chuanwu <>
+%
+\RequirePackage{fixltx2e} %This package in CTeX is not compatible with revtex4-1
+\documentclass[aps,pre,12pt,preprint,onecolumn,showpacs,showkeys]{revtex4-1}
+\usepackage{ctex}
+\usepackage{setspace,dcolumn}
+\usepackage{subfig}
+\usepackage{hyperref}
+\usepackage{graphicx,psfrag,epsfig}
+\usepackage[font=small,format=plain,labelfont=bf,textfont=it,justification=raggedright,singlelinecheck=false]{caption}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,bm,upgreek}
+\usepackage{geometry}
+\usepackage[mathscr]{eucal}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+
+
+%\usepackage{background} %Waterstamp package
+%\SetBgContents{...的实验报告} %Waterstamp to prevent copying
+%\SetBgScale{5} %Waterstamp setting
+\hypersetup{colorlinks=true}
+\geometry{top=2.54cm,bottom=2.54cm,left=3cm,right=3cm}
+\renewcommand\appendixname{附录}
+\renewcommand\abstractname{}%摘要
+\renewcommand\tablename{表}
+\renewcommand\figurename{图}
+\makeatletter
+\def\@pacs@name{\songti\zihao{-4}{\bf PACS码：}}
+\def\@keys@name{\songti\zihao{-4}{\bf 关键词：}}
+\def\Dated@name{日期：}
+\def\Received@name{\zihao{-5}{接收} }
+\def\Revised@name{\zihao{-5}{修订} }
+\def\Accepted@name{\zihao{-5}{采纳} }
+\def\Published@name{\zihao{-5}{发表} }
+\makeatother
+\linespread{1.6}
+\renewcommand{\labelenumi}{\alph{enumi}.}
+\leftmargini=20mm
+
+\begin{document}
+\title{\bf\heiti\zihao{3}扫描隧穿显微镜\vspace{15mm}}
+\author{\fangsong\zihao{4}钱思天\vspace{2mm}}
+\affiliation{\songti\zihao{-4}北京大学物理学院~~~~ 北京市~~~~1600011388\vspace{2mm}}
+\date{\today}
+%\pacs{02.10.Yn, 33.15.Vb, 98.52.Cf, 78.47.dc}
+\keywords{扫描隧穿显微镜，晶体结构，隧穿效应，漂移}
+\email{stqian@pku.edu.cn; (86)15375244846}
+
+\begin{abstract}
+\vspace{10mm}
+\begin{spacing}{1.5}
+\songti\zihao{-4}
+扫描隧穿显微镜(STM，Scanning Tunneling microscope)是一种利用电子的量子隧穿效应来探测物质表面结构的仪器。和常规的原子级分辨仪器相比，其主要优势在于能给出实空间的信息，以其高分辨本领对各种局域结构或非周期结构进行研究，大大丰富了我们实验的方法。本实验主要学习并掌握扫描隧穿显微镜的原理和结构，观测和理解量子力学中的隧穿效应，学习扫描隧穿显微镜的操作和调试过程，并用STM观测HOPG （高定向热解石墨）样品的表面形貌，得到原子分辨的图像，最后通过测量并计算出x,y陶瓷中的压电系数。
+\end{spacing}
+\end{abstract}
+\maketitle
+\songti\zihao{-4}
+
+
+\section{引言}
+20世纪80年代初,IBM苏黎世实验室的Binning和Rohrer发明了扫描隧穿显微镜(STM,scanning tenneling microscope),1986年他们因此获得了诺贝尔物理学奖.他们当初的动机是为了研究很薄的绝缘体的局域结构,电子特性以及生长性质.而当他们想到采用电子的
+隧穿效应进行观测的时候,STM这一技术便诞生了.随着STM的诞生,人们又研发出一系列的通称为扫描探针显微镜(SPM)的各种技术.\par
+STM的优势在于其高分辨本领.STM在平行于表面的横向分辨率能够达到$0.1\si{mm}$,而在垂直于表面的纵向分辨率可以达到$1\AA$
+\section{实验装置及样品}
+如图是一个典型的STM的实验装置图
+\subsection{STM}
+STM一般由以下四部分组成。
+\subsubsection{减震系统}
+STM必须排除以下几种干扰：振动(vibration)、冲击(shock)、 声波干扰(acoustic interference)。本实验采用的多级减震系统为：
+\begin{itemize}
+\item 用于隔离低频振动的挂在系统上四根长弹簧。STM系统中弹簧伸长量约为30 cm，共振频率很低，几赫兹以上的低频振动可以被比较好地削弱。
+\item 底盘上加氟橡胶条使系统的性能进一步改善。几块大小不同的金属平板叠在一起，平板之间使用氟橡胶条相隔。
+\end{itemize}
+\subsubsection{粗逼近}
+粗逼近是STM设计的关键，其目标为把样品移动到扫描架工作的范围内，并且要求它在不工作时要尽可能稳定地停在它的位置上，以减少振动影响。\par
+本仪器所使用的是蜗轮蜗杆变速装置，由传递系数很低的高精度蜗轮蜗杆减速箱带动一根坚固的丝杆向前推动样品，系统的各个零件通过几个支点支撑，处于稳定且唯一的位置。
+\subsubsection{扫描架}
+扫描单元的结构应该尽可能地牢固和稳定。本仪器的扫描架由两对陶瓷杆和一根陶瓷管支撑着的牢固结构组成。
+\subsubsection{STM的电子学控制单元}
+STM由一台PC机和电子学单元控制，它们之间通过一8255 接口卡来连接，电子学分为工作电源和隧穿电流反馈控制与信号采集两大部分：前一部分提供X,Y扫描电压和Z高压，后一部分包括样品偏压、马达驱动、隧穿电流的控制和信号采集的模数转换等。
+
+
+
+
+
+\section{实验过程以及结果分析}
+\subsection{针尖制备}
+考虑到制备针尖周期较长，且难以达到实验效果，本实验中针尖由实验室老师准备好。
+
+\subsection{扫描得到原子分辨像}
+从$200\ V\times200\ V$的扫描范围开始逐步逼近，并根据经验公式减小对应的扫描时间，使用时在更换放大倍数时根据现实形状调节"offset"旋钮，使其呈现震荡而不是直线或者被截断。要有一定梯度、条理地调节，逐步找到平坦地区得到清晰、合理的像。实验中隧穿电流始终显示为1.00 nA。
+多次扫描，每个电压水平下尝试不同的扫描时间、不同的信号增益、不同的偏压最后得到HOPG（高定向热解石墨）的原子分辨像其参数和图像如下：
+\begin{table}[!h]
+	\caption{原子分辨图对应参数}
+	\begin{ruledtabular}
+		\begin{tabular}{ccccccc}
+			
+			扫描范围 &  扫描时间/ms  & 起始位置/V & 偏压  & 放大倍数\\
+			\hline
+            $200\ V \times200\ V$ & 2000 & (0,0) & 1000& 20\\
+            $6\ V \times6\ V$ & 400 & (80,40) & 500& 100\\
+            $4\ V \times4\ V$ & 300 & (80,40) & 500& 100\\
+            $2\ V \times2\ V$ & 300 & (80,40) & 300& 100\\
+
+			
+		\end{tabular}
+	\end{ruledtabular}
+	\label{tab:表4}
+\end{table}
+
+
+
+
+\subsection{对不同参数下图像的分析与讨论}
+实验中，扫描范围较小时图像的质量主要要取决于扫描时间、针尖状态、偏置电压等因素。实验中会不可避免地出现“热漂移”现象，甚至有时会出现相邻扫描线之间明显的偏移以至于视觉上仿佛连在了一起，不能准确地显示原子的排列。\par
+但这同时可能是因为针尖与样品表面的接触或者说距离不够理想，以及针尖不再洁净造成的。在老师的指导下重新进行进退针以及手动给针尖加电压脉冲可以缓解这个现象，经此操作后图像质量有明显的提高。\par
+此外，信号增益也是一个影响图像清晰度的因素。加大信号增益，对比度增强，图像看起来更为清晰，但是过大的增益会超过仪器的分辨识别本领，形成“溢出”现象，造成图像失真。\par
+最后，扫描时间是一个非常重要的因素。经验上来讲，扫描范围越大，扫描时间近似线性地增大，但是实验中可以根据具体情况做$\pm 50\%$的调整。虽然扫描时间不直接决定这个参数组下是否“能够”得到原子分辨像，却显著地决定着原子分辨像的“好坏”。扫描时间变大针尖与样品之间响应充分，图像整体会变清晰，但是相应的代价就是热漂移现象会体现地更为严重；同理，扫描时间缩短时，图像模糊，清晰度下降，但是热漂移现象表现会不那么强烈（选取时间短！），我们在实验中必须通过不断地调试以及多次测量与比对得到图像。下图展现了不同扫描时间的对比。\par
+
+
+
+
+\par
+\textbf{特别需要说明的是，本实验不同于其他实验测量量为宏观平均量较为稳定，其测量结果不确定性、涨落很大，经常需要同一状态下（同一宏观参数下）耐心、多次的细致测量以及仔细的判断。}
+
+
+\subsection{标定压电系数}
+图中有规律的方向，即排列周期特征的方向不是水平(x方向)或者竖直(y方向)，故考虑用勾股定理。
+
+根据HOPG（高定向热解石墨）原子分辨像中两原子之间距离$r_0=0.246\ nm$，再根据实际尺寸以及扫描电压，利用Windows画图软件得到三个点坐标（默认原点为左上角，但是这不关键因为数据处理只关心差值）分别为：(76,335), (343,209), (150,54) （总像素被软件识别为390$\times$390），转化为对应电压为：(0.390,1.718), (1.759,1.072), (0.769,0.277)，设x,y方向压电系数分别为$d_x,d_y$,可得以下方程组：
+\begin{equation}
+\begin{cases}
+(0.769d_x-0.390d_x)^2+(0.277d_y-1.718d_y)^2=(6r_0)^2\\
+(0.769d_x-1.759d_x)^2+(0.277d_y-1.072d_y)^2=(6r_0)^2\\
+\end{cases}
+\end{equation}
+
+解得：
+\begin{equation}
+\begin{cases}
+d_x = 1.272\ nm/V\\
+d_y = 0.968\ nm/V\\
+\end{cases}
+\end{equation}
+
+两方向陶瓷的压电系数都在1 nm/V左右。
+
+
+
+\section{结论}
+本实验主要学习并掌握扫描隧穿显微镜的原理和结构，观测和理解量子力学中的隧穿效应，学习扫描隧穿显微镜的操作和调试过程，并用STM观测HOPG （高定向热解石墨）样品的表面形貌，得到原子分辨的图像，并分析了偏置电压、扫描时间等参数对图像清晰度的影响；最后通过测量并计算出x,y 陶瓷中的压电系数。\par
+值得再次强调的是，\textbf{本实验不同于其他实验测量量为宏观平均量较为稳定，其测量结果不确定性、涨落很大，经常需要同一状态下（同一宏观参数下）耐心、多次的细致测量以及仔细的判断。}
+
+\section{致谢}
+感谢季航老师悉心的指导和帮助以及耐心的讲解和拓展。感谢朱宏渝同学在实验过程中的合作与帮助。\par
+感谢近代物理实验教学中心的老师们提供仪器、场地以及日常的维护。\par
+%\bibliography{apssamp}
+\begin{thebibliography}{}
+\bibitem{Book} 吴思诚，荀坤 2015 近代物理实验（第四版）（北京：高等教育出版社）.
+\end{thebibliography}
+
+\clearpage
+\appendix
+\section{思考题}
+\subsection{HOPG的原子排列为六角密排（无心的），为什么我们在实验中看到的HOPG原子分辨像是有心的六角密排？}
+又固体理论可知HOPG属于六角晶系，每一层晶格为正六边形。三维结构中一层六边形中心正好对应相邻层的原子，双层叠加形成了ABAB的堆积模式，故实验中得到的原子分辨像中中心原子实际上是相邻层的原子，视觉上是有心的六角密排。
+
+
+
+
+\end{document}
